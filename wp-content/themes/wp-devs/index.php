@@ -9,8 +9,9 @@
                         while(have_posts()): the_post();
                         ?>    
                             <article style="margin:30px 0">
-                                <h2><?php echo the_title();?></h2>
+                                <h2><a href="<?php the_permalink(); ?>"><?php echo the_title();?></a></h2>
                                 <div class="meta-info">
+                                    <?php the_post_thumbnail(array( 400, 300 )); ?>
                                     <p>Posted in: <?php echo get_the_date(); ?> by <?php the_author(); ?></p>
                                     <p>Categories: <?php the_category(', '); ?> </p>
                                     <p>Tags: <?php the_tags( '', ', '); ?> </p>

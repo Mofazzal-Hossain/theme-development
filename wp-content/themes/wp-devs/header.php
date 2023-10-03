@@ -9,6 +9,21 @@
 <body <?php body_class(); ?>>
 
     <header>
+        <div class="header-logo">
+           <?php 
+                if ( !empty(the_custom_logo()) ):
+                    the_custom_logo();
+                else:
+                   ?>
+
+                    <a href="<?php echo home_url('/'); ?>">
+                        <span><?php bloginfo('name'); ?></span>
+                    </a>
+
+                    <?php
+                endif;
+           ?>
+        </div>
         <nav>
             <?php
                 wp_nav_menu(
@@ -19,4 +34,4 @@
             ?>
         </nav>
     </header>
-  <img src="<?php header_image();?>" height="<?php echo get_custom_header()->height;?>" alt="" style="width:100%">
+  <img src="<?php header_image();?>" width="<?php echo get_custom_header()->width ?>" height="<?php echo get_custom_header()->height;?>" alt="" style="width:100%">

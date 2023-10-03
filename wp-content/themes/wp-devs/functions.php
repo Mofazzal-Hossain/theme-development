@@ -22,6 +22,15 @@ function devs_config(){
     );
 
     add_theme_support( 'custom-header',$hero_banner);
+    add_theme_support( 'post-thumbnails' );
+
+    add_theme_support( 'custom-logo', array(
+        'height'      => 150,
+        'width'       => 150,
+        'flex-height' => true,
+        'flex-width'  => true,
+    ) );
+
 }
 
 add_action('after_setup_theme', 'devs_config');
