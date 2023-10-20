@@ -4,34 +4,44 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WP Devs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 
-    <header>
-        <div class="header-logo">
-           <?php 
-                if ( !empty(the_custom_logo()) ):
+<header class="p-3 mb-3 border-bottom">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none" style="max-width: 150px;">
+            <?php 
+                if(has_custom_logo()):
                     the_custom_logo();
                 else:
-                   ?>
-
-                    <a href="<?php echo home_url('/'); ?>">
-                        <span><?php bloginfo('name'); ?></span>
-                    </a>
-
-                    <?php
+                    echo "<span>" . get_bloginfo('name') . "</span>";
                 endif;
-           ?>
-        </div>
-        <nav>
-            <?php
-                wp_nav_menu(
-                    array(
-                        'theme_location' => 'primary',
-                    )
-                )
             ?>
-        </nav>
-    </header>
-  <img src="<?php header_image();?>" width="<?php echo get_custom_header()->width ?>" height="<?php echo get_custom_header()->height;?>" alt="" style="width:100%">
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li>
+          <li><a href="#" class="nav-link px-2 link-dark">Inventory</a></li>
+          <li><a href="#" class="nav-link px-2 link-dark">Customers</a></li>
+          <li><a href="#" class="nav-link px-2 link-dark">Products</a></li>
+        </ul>
+
+        <?php get_search_form() ;?>
+        <div class="dropdown text-end">
+          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>

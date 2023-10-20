@@ -2,7 +2,8 @@
 
 <div class="site-content" id="content" style="margin: 50px 0">
     <div id="primary" class="content-area">
-        <div id="main" class="site-main">
+        <div id="mai" class="site-main">
+            <div class="container">
             <section class="home-blog">
                 <?php
                     if(have_posts()):
@@ -11,7 +12,9 @@
                             <article style="margin:30px 0">
                                 <h2><a href="<?php the_permalink(); ?>"><?php echo the_title();?></a></h2>
                                 <div class="meta-info">
-                                    <?php the_post_thumbnail(array( 400, 300 )); ?>
+                                    <a href="<?php the_permalink(); ?>">
+                                        <?php echo the_post_thumbnail('large') ?>
+                                    </a>
                                     <p>Posted in: <?php echo get_the_date(); ?> by <?php the_author(); ?></p>
                                     <p>Categories: <?php the_category(', '); ?> </p>
                                     <p>Tags: <?php the_tags( '', ', '); ?> </p>
@@ -20,6 +23,16 @@
                             </article>
                         <?php
                         endwhile;
+                        ?>
+                            <div class="pagination d-flex items-justified-space-between">
+                                <div class="new">
+                                    <?php previous_posts_link("<< newer posts "); ;?>
+                                </div>
+                                <div class="older">
+                                    <?php next_posts_link("older posts >> "); ;?>
+                                </div>
+                            </div>
+                        <?php
                     else: 
                         echo '<p>No posts found</p>';
                     endif;
@@ -44,6 +57,7 @@
                         <?php dynamic_sidebar('sidebar-service-03');?>
                     <?php endif;?>
                 </div>
+            </div>
             </div>
         </div>
     </div>
