@@ -34,14 +34,42 @@ function devs_config(){
 }
 
 add_action('after_setup_theme', 'devs_config');
-add_action('widgets_init', 'wpdevs_sidebar');
 
-function wpdevs_sidebar(){
+add_action('widgets_init', 'wpdevs_widgets');
+
+function wpdevs_widgets(){
     register_sidebar(
-        array(
-            'name'=> 'Blog Sidebar',
-            'id'=>'blog-sidebar',
-            'description'=>'This is blog sidebar, you can customize here.'
-        )
+        [
+            'name' => 'Service Sidebar 01',
+            'id' => 'sidebar-service-01',
+            'description' => 'Widgets in this area will be shown on all posts and pages.',
+            'before_widget' => '<div class="widget-wrapper">',
+            'after_widget' => '</div>',
+            'before_title' => '<h3 class="widget-title">',
+            'after_title' => '</h3>',
+        ]
     );
+    register_sidebar(
+        [
+            'name' => 'Service Sidebar 02',
+            'id' => 'sidebar-service-02',
+            'description' => 'Widgets in this area will be shown on all posts and pages.',
+            'before_widget' => '<div class="widget-wrapper">',
+            'after_widget' => '</div>',
+            'before_title' => '<h3 class="widget-title">',
+            'after_title' => '</h3>',
+        ]
+    );
+    register_sidebar(
+        [
+            'name' => 'Service Sidebar 03',
+            'id' => 'sidebar-service-03',
+            'description' => 'Widgets in this area will be shown on all posts and pages.',
+            'before_widget' => '<div class="widget-wrapper">',
+            'after_widget' => '</div>',
+            'before_title' => '<h3 class="widget-title">',
+            'after_title' => '</h3>',
+        ]
+    );
+   
 }

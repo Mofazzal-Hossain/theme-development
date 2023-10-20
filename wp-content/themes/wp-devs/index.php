@@ -25,6 +25,26 @@
                     endif;
                 ?>
             </section>
+            <div class="row">
+                <div class="col-md-4">
+                    <?php if(is_active_sidebar('sidebar-service-01')) :?>
+                        <h3>Service 01</h3>
+                        <?php dynamic_sidebar('sidebar-service-01');?>
+                    <?php endif;?>
+                </div>
+                <div class="col-md-4">
+                    <?php if(is_active_sidebar('sidebar-service-02')) :?>
+                        <h3>Service 02</h3>
+                        <?php dynamic_sidebar('sidebar-service-02');?>
+                    <?php endif;?>
+                </div>
+                <div class="col-md-4">
+                    <?php if(is_active_sidebar('sidebar-service-03')) :?>
+                        <h3>Service 03</h3>
+                        <?php dynamic_sidebar('sidebar-service-03');?>
+                    <?php endif;?>
+                </div>
+            </div>
         </div>
     </div>
 </div>
