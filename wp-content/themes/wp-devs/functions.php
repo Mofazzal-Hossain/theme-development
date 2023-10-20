@@ -34,3 +34,14 @@ function devs_config(){
 }
 
 add_action('after_setup_theme', 'devs_config');
+add_action('widgets_init', 'wpdevs_sidebar');
+
+function wpdevs_sidebar(){
+    register_sidebar(
+        array(
+            'name'=> 'Blog Sidebar',
+            'id'=>'blog-sidebar',
+            'description'=>'This is blog sidebar, you can customize here.'
+        )
+    );
+}
