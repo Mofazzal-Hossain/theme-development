@@ -1,9 +1,14 @@
 <?php get_header();?>
 
 <div class="container">
+    <?php if(has_post_thumbnail()):?>
+        <?php the_post_thumbnail(array(500,500));?>
+    <?php endif;?>
     <h3><?php echo the_title();?> #<?php the_ID() ;?></h3>
-    <span class="d-flex">Categories: <?php the_category();?></span>
-    <?php if(the_tags()): ?>
+    <?php if(has_category()):?>
+        <span class="d-flex">Categories: <?php the_category();?></span>    
+    <?php endif;?>
+    <?php if(has_tag()): ?>
         <span>Tags: <?php echo the_tags() ;?></span>
     <?php endif; ?>
     <?php if(the_content()):?>

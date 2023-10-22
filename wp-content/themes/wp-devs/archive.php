@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="latest-news">
-        <h3>Lastest News</h3>
+        <?php the_archive_title('<h1 class="archive-title">','</h1>') ;?>
         <?php 
             $arg =[
                 'post_type' => 'post',
@@ -17,9 +17,11 @@
                   ?>
                     <article> 
                         <?php if(has_post_thumbnail()):?>
-                            <?php the_post_thumbnail(array(300,300));?>    
+                            <a href="<?php the_permalink() ?>">
+                                <?php the_post_thumbnail(['300','300']);?>    
+                            </a>
                         <?php endif;?>
-                        <h3><a href="<?php the_permalink() ?>"><?php echo the_title(); ?></a></h3>
+                        <h3><?php echo the_title(); ?></h3>
                         <div class="meta-info">
                             <p>
                                 by <span><?php the_author_posts_link(); ?></span>

@@ -1,5 +1,8 @@
 <?php
 
+
+require get_template_directory().'/inc/customizer.php';
+
 function wpdevs_load_scripts(){
     wp_enqueue_style('wpdev-style', get_stylesheet_uri(), array(), '1.0', 'all');
 }
@@ -30,6 +33,10 @@ function devs_config(){
         'flex-height' => true,
         'flex-width'  => true,
     ) );
+    add_theme_support( 'title-tag' );
+
+    add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'style', 'script' ) );
+
 
 }
 
@@ -73,3 +80,16 @@ function wpdevs_widgets(){
     );
    
 }
+
+if(!function_exists('wp_body_open')){
+    function wp_body_open(){
+        do_action('wp_body_open');
+    }
+}
+
+include_once( dir( __FILE__ ) . '/inc/kirki/kirki.php' );
+
+function wpdevs_kirki_configuration() {
+    return array( 'url_path'     => get_stylesheet_directory_uri() . '/includes/kirki/' );
+}
+add_filter( 'kirki/config', 'wpdevs_kirki_configuration' );
