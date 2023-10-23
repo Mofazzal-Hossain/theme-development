@@ -3,11 +3,11 @@
 
 require get_template_directory().'/inc/customizer.php';
 
-function wpdevs_load_scripts(){
+function wpdevs_scripts(){
     wp_enqueue_style('wpdev-style', get_stylesheet_uri(), array(), '1.0', 'all');
 }
 
-add_action('wp_enqueue_scripts', 'wpdevs_load_scripts');
+add_action('wp_enqueue_scripts', 'wpdevs_scripts');
 
 
 
